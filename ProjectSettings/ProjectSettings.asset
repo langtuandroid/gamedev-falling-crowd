@@ -160,7 +160,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.noname.digital.gamedev.fallingcrowd
-    iPhone: com.noname.digital.gamedev.fallingcrowd
+    iPhone: com.noname.digital.test
   buildNumber:
     Standalone: 0
     VisionOS: 0
@@ -183,7 +183,7 @@ PlayerSettings:
   StripUnusedMeshComponents: 1
   strictShaderVariantMatching: 0
   VertexChannelCompressionMask: 4054
-  iPhoneSdkVersion: 988
+  iPhoneSdkVersion: 989
   iOSTargetOSVersionString: 12.0
   tvOSSdkVersion: 0
   tvOSRequireExtendedGameController: 0

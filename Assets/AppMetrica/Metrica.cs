@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Metrica : MonoBehaviour
@@ -53,8 +52,8 @@ public class Metrica : MonoBehaviour
 */
       //=================================================================================
 
-      AppMetrica.Instance.ReportEvent (eventName, parameters);
-      if (sendNow) AppMetrica.Instance.SendEventsBuffer();
+      // AppMetrica.Instance.ReportEvent (eventName, parameters);
+      // if (sendNow) AppMetrica.Instance.SendEventsBuffer();
     }
 
     // Update is called once per frame
