@@ -107,27 +107,24 @@ public class Controll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      if (gamestarted){
+      if (gamestarted)
+      {
+        timerFall += Time.deltaTime;
+          /////// CHECK FALLING AND RAYCAST/////////////////////////////////
+          RaycastHit hit;
+          if (Physics.Raycast(transform.position-Vector3.up*3, Vector3.up, out hit, 5, (1 << 6) )){
+            var col = hit.collider;
 
-                  timerFall += Time.deltaTime;
-                  /////// CHECK FALLING AND RAYCAST/////////////////////////////////
-
-                  RaycastHit hit;
-                  if (Physics.Raycast(transform.position-Vector3.up*3, Vector3.up, out hit, 5, (1 << 6) )){
-                    var col = hit.collider;
-
-                    if (col.tag == "Hex"){
-                      col.gameObject.AddComponent<OnHex>();
-                      col.gameObject.tag = "HexOn";
-                      timerFall = 0;
-                    }
-                    if (col.tag == "HexOn"){
-                      timerFall = 0;
-                    }
-
-                  }
-
-                  //////////////////////////////////////////////////////////////////
+            if (col.tag == "Hex"){
+              col.gameObject.AddComponent<OnHex>();
+              col.gameObject.tag = "HexOn";
+              timerFall = 0;
+            }
+            if (col.tag == "HexOn"){
+              timerFall = 0;
+            }
+          }
+          //////////////////////////////////////////////////////////////////
 
           if (tempCount != count){
             if (count < 1) count = 1;
@@ -140,7 +137,8 @@ public class Controll : MonoBehaviour
 
           PlayerUI.position = transform.position;
 
-          if (!Bot){
+          if (!Bot)
+          {
               if (!controllerStopMove) transform.Translate(Vector3.forward * speed * Time.deltaTime);
 
               if (Input.GetMouseButton(0)){
@@ -159,7 +157,9 @@ public class Controll : MonoBehaviour
 
               camera.transform.position = transform.position + camPos;//new Vector3(transform.position.x,10,transform.position.z-10);
               camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, 60+count*0.1f, Time.deltaTime*2);
-          }else{
+          }
+          else
+          {
             //////// *****************   BOT   ******************* ///////// *********************** //////////
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
 
@@ -224,12 +224,15 @@ public class Controll : MonoBehaviour
           }
 
 
-          if (timerFall > 0.19f){
+          if (timerFall > 0.05f)
+          {
             if (!started ){ started = true; timerFall = 0;}
             falling = true;
             //transform.Translate(Vector3.forward * speed * 0.8f * Time.deltaTime * coefFalling);
-            transform.Translate(-Vector3.up * 4 * Time.deltaTime * coefFalling);
-          }else{
+            transform.Translate(-Vector3.up * 15 * Time.deltaTime * coefFalling);
+          }
+          else
+          {
             if (posy < 0 && posy > -0.4f){
                transform.Translate(Vector3.up * 1 * Time.deltaTime);
             }else{
@@ -240,10 +243,7 @@ public class Controll : MonoBehaviour
           }
 
           if (posy < -2) Death();
-
-
-
-     }
+      }
     }
 
     public void Death(){
