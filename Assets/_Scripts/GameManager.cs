@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using _Scripts.UIElements;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public bool Menu;
-    private Metrica metrica;
+    //private Metrica metrica;
     public GameObject minionPrefab;
     public GameObject Player;
     public GameObject PlayersInformer;
@@ -32,9 +33,10 @@ public class GameManager : MonoBehaviour
     }
 
     void Awake(){
-      if (PlayerPrefs.GetInt("firstStart") != 1){
+      if (PlayerPrefs.GetInt("firstStart") != 1)
+      {
         PlayerPrefs.SetInt("firstStart", 1);
-        PlayerPrefs.SetString("Nickname", "Player"+Random.Range(11212, 99999) );
+        PlayerPrefs.SetString("Nickname", "Player" + Random.Range(11212, 99999) );
 
       }
 
@@ -47,14 +49,15 @@ public class GameManager : MonoBehaviour
       QualitySettings.vSyncCount = 0;
       Application.targetFrameRate = 60;
 
-      if (GameObject.Find("AppMetrica")){
-        metrica = GameObject.Find("AppMetrica").GetComponent<Metrica>();
-      }
+      // if (GameObject.Find("AppMetrica")){
+      //   metrica = GameObject.Find("AppMetrica").GetComponent<Metrica>();
+      // }
 
-      if (!Menu){
-        if (metrica){
-           metrica.level_start(1, "01_level", 999);
-        }
+      if (!Menu)
+      {
+        // if (metrica){
+        //    metrica.level_start(1, "01_level", 999);
+        // }
 
         leadernum = leaderboard.Length;
         PlayersInformer.SetActive(false);
@@ -192,7 +195,7 @@ public class GameManager : MonoBehaviour
             WriteDeathLeaderboard(PlayerPrefs.GetString("Nickname"), false);
             victory = true;
           }else{
-            FinishUI.GetComponent<FinishUI>().endText.text = "TRY AGAIN";
+            FinishUI.GetComponent<FinishUIfc>().endText.text = "TRY AGAIN";
           }
 
           PlayersInformer.SetActive(false);
@@ -205,12 +208,12 @@ public class GameManager : MonoBehaviour
           if (playernum == 0) GetGold(50);
 
 
-          if (metrica){
-              string wi = "lose";
-              if(win) wi = "win";
-              int progress = (int)( ( (6.0f-playernum)/6.0f )*100 );
-             metrica.level_finish(1, "01_level", 999, wi, progress, 0);
-          }
+          // if (metrica){
+          //     string wi = "lose";
+          //     if(win) wi = "win";
+          //     int progress = (int)( ( (6.0f-playernum)/6.0f )*100 );
+          //    metrica.level_finish(1, "01_level", 999, wi, progress, 0);
+          // }
           FinishUI.SetActive(true);
       }
     }
