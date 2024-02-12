@@ -1,3 +1,4 @@
+using MainManagers;
 using TMPro;
 using UnityEngine;
 
@@ -16,7 +17,7 @@ namespace UIElements
     private void Start()
     {
       GameManagerfc = GameObject.Find("GameManager").GetComponent<GameManagerfc>();
-      nummaxfc = GameManagerfc.leaderboard.Length;
+      nummaxfc = GameManagerfc.leaderboardfc.Length;
     }
     
     private void Update()
@@ -29,10 +30,10 @@ namespace UIElements
         int i = 0;
         while (i < nummaxfc)
         {
-          if (GameManagerfc.leaderboard[i] != "")
+          if (GameManagerfc.leaderboardfc[i] != "")
           {
-            textLeaderfc[i].text = GameManagerfc.leaderboard[i];
-            if (GameManagerfc.playernum == i) textLeaderfc[i].color = new Color(1,1,0);
+            textLeaderfc[i].text = GameManagerfc.leaderboardfc[i];
+            if (GameManagerfc.playernumfc == i) textLeaderfc[i].color = new Color(1,1,0);
           }
           i++;
         }

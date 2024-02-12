@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using MainManagers;
 using Other;
 using UnityEngine;
 
@@ -35,7 +36,7 @@ public class Minion : MonoBehaviour
       //Destroy(GetComponent<FoodTriggerMinion>());
       timerRun = 2;
       smr.material.color = c;
-      GM.curMinionCount -= 1;
+      GM.curMinionCountfc -= 1;
       smr.gameObject.transform.parent.transform.GetComponent<Animator>().enabled = true;
       timerDist = Random.Range(0.01f, 0.39f);
     }
@@ -139,7 +140,7 @@ public class Minion : MonoBehaviour
          controll = null;
        }
       player = null;
-      GM.CreateMinion(false, gameObject, 1);
+      GM.CreateMinionfc(false, gameObject, 1);
       falling = false;
       this.enabled = false;
       tag = "Food";

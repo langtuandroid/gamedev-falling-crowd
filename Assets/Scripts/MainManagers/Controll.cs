@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using CnControls;
+using MainManagers;
 using Other;
 using TMPro;
 
@@ -70,7 +71,7 @@ public class Controll : MonoBehaviour
               UIarrowEnemy = Instantiate(UIarrowEnemy, GameObject.Find("Canvas").transform);
               UIarrowEnemy.GetComponent<ArrowToEnemy>().SetStart(gameObject, playerColor);
             }else{
-              SimpleArrowEnemy = Instantiate(SimpleArrowEnemy, GM.Player.GetComponent<Controll>().PlayerUI.transform);
+              SimpleArrowEnemy = Instantiate(SimpleArrowEnemy, GM.Playerfc.GetComponent<Controll>().PlayerUI.transform);
               Color col = playerColor;
               col.a = 0.5f;
               SimpleArrowEnemy.GetComponent<ArrowToEnemySimple>().SetStart(gameObject, col );
@@ -78,7 +79,7 @@ public class Controll : MonoBehaviour
           }
           gameObject.AddComponent<CheckVisible>().SetStart(this);
           //smr.gameObject.AddComponent<CheckVisible>().SetStart(this);
-          nickname = GM.GenerateNickname();
+          nickname = GM.GenerateNicknamefc();
           FinderCollider.GetComponent<FinderCollider>().SetStart();
           rotateSmooth = 17.5f;
           turnside = Random.Range (-1, 1);
@@ -202,7 +203,7 @@ public class Controll : MonoBehaviour
                 timerMinionGet += Time.deltaTime;
                 if (timerMinionGet > 1.5f){
                   timerMinionGet = 0;
-                  GM.CreateMinion(false, gameObject, 2);
+                  GM.CreateMinionfc(false, gameObject, 2);
                 }
                 coefFalling = 0.009f;
               }else{
@@ -246,13 +247,13 @@ public class Controll : MonoBehaviour
     }
 
     public void Death(){
-      GM.WriteDeathLeaderboard(nickname, Bot);
+      GM.WriteDeathLeaderboardfc(nickname, Bot);
       Destroy(this);
       if (Bot){
         //Destroy(arrowEnemy);
         Destroy(FinderCollider.gameObject);
       }else{
-        GM.GameFinish(false);
+        GM.GameFinishfc(false);
       }
 
       Destroy(PlayerUI.gameObject);
@@ -308,8 +309,6 @@ public class Controll : MonoBehaviour
       }
     }
 
-
-
     void OnCollisionEnter(Collision col){
           if (col.collider.tag == "Minion"){
             Minion minion = col.collider.gameObject.GetComponent<Minion>();
@@ -332,8 +331,6 @@ public class Controll : MonoBehaviour
             }
           }
     }
-
-
 
     public void MinionGet(GameObject minion){
       count += 1;
