@@ -1,3 +1,4 @@
+using MainManagers;
 using UnityEngine;
 
 namespace GameElements
@@ -8,11 +9,11 @@ namespace GameElements
     {
       if (col.CompareTag("Player"))
       {
-        col.GetComponent<Controll>().MinionGet(gameObject);
+        col.GetComponent<Controllfc>().MinionGetfc(gameObject);
       }
       if (col.CompareTag("Minion"))
       {
-        col.GetComponent<Minion>().player.GetComponent<Controll>().MinionGet(gameObject);
+        col.GetComponent<Minionfc>().playerfc.GetComponent<Controllfc>().MinionGetfc(gameObject);
       }
     }
   }

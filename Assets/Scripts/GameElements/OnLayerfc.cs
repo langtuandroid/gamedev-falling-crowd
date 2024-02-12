@@ -1,3 +1,4 @@
+using MainManagers;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,7 +7,7 @@ namespace GameElements
 {
   public class OnLayerfc : MonoBehaviour
   {
-    public Controll playerControllfc;
+    public Controllfc playerControllfc;
     public TextMeshProUGUI nickfc;
     private bool startedfc;
   
@@ -15,8 +16,8 @@ namespace GameElements
       if (!startedfc)
       {
         startedfc = true;
-        nickfc.text = playerControllfc.nickname;
-        Color col = playerControllfc.playerColor;
+        nickfc.text = playerControllfc.nicknamefc;
+        Color col = playerControllfc.playerColorfc;
         col.a = 0.35f;
         GetComponent<Image>().color = col;
       }

@@ -583,7 +583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 973bfd358c01ba64083dfbc0d47ab96c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectFind: {fileID: 0}
+  objectFindfc: {fileID: 0}
 --- !u!1 &6784899568125699404
 GameObject:
   m_ObjectHideFlags: 0
@@ -666,29 +666,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66a380fcf016b8740bddb0f52ead6e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bot: 1
-  controllerStopMove: 0
-  count: 1
-  nickname: 
-  speed: 5
-  visible: 0
-  notShowArrows: 0
-  playerColor: {r: 0.36862746, g: 0.65882355, b: 0.9137255, a: 1}
-  FinderCollider: {fileID: 4008483291521591745}
-  joy: {fileID: 875482045003087144}
-  botJoy: {fileID: 6194097509665061080}
-  smr: {fileID: 5913126176379290719}
-  PlayerUI: {fileID: 1155868454}
-  t_count: {fileID: 4937844296868343208}
-  t_nickname: {fileID: 8320294323390310909}
-  target: {fileID: 0}
-  score_box: {fileID: 1760391423}
-  DoUiArrow: 0
-  UIarrowEnemy: {fileID: 7021529097553368725, guid: 5295172fe5f6b9241a481a7d85dd76b6,
+  Botfc: 0
+  controllerStopMovefc: 0
+  countfc: 1
+  nicknamefc: 
+  speedfc: 4
+  visiblefc: 0
+  notShowArrowsfc: 0
+  playerColorfc: {r: 0.36862746, g: 0.65882355, b: 0.9137255, a: 1}
+  FinderColliderfc: {fileID: 4008483291521591745}
+  joyfc: {fileID: 875482045003087144}
+  botJoyfc: {fileID: 6194097509665061080}
+  skinmeshfc: {fileID: 5913126176379290719}
+  PlayerUIfc: {fileID: 1155868454}
+  t_countfc: {fileID: 4937844296868343208}
+  t_nicknamefc: {fileID: 8320294323390310909}
+  targetfc: {fileID: 0}
+  score_boxfc: {fileID: 1760391423}
+  DoUiArrowfc: 0
+  UIarrowEnemyfc: {fileID: 7021529097553368725, guid: 5295172fe5f6b9241a481a7d85dd76b6,
     type: 3}
-  SimpleArrowEnemy: {fileID: 563882681236075398, guid: 681daad68c1838d4aa5e6b0ff6255b50,
+  SimpleArrowEnemyfc: {fileID: 563882681236075398, guid: 681daad68c1838d4aa5e6b0ff6255b50,
     type: 3}
-  gamestarted: 0
+  gamestartedfc: 0
 --- !u!135 &8571921989987238893
 SphereCollider:
   m_ObjectHideFlags: 0
