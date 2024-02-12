@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using GameElements;
 using MainManagers;
 using Other;
 using UnityEngine;
@@ -55,7 +56,7 @@ public class Minion : MonoBehaviour
             var col = hit.collider;
 
             if (col.tag == "Hex"){
-              col.gameObject.AddComponent<OnHex>();
+              col.gameObject.AddComponent<OnHexfc>();
               col.gameObject.tag = "HexOn";
               timerFall = 0;
             }

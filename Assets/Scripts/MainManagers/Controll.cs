@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using CnControls;
+using GameElements;
 using MainManagers;
 using Other;
 using TMPro;
@@ -69,18 +70,18 @@ public class Controll : MonoBehaviour
           if (!notShowArrows){
             if (DoUiArrow){
               UIarrowEnemy = Instantiate(UIarrowEnemy, GameObject.Find("Canvas").transform);
-              UIarrowEnemy.GetComponent<ArrowToEnemy>().SetStart(gameObject, playerColor);
+              UIarrowEnemy.GetComponent<ArrowToEnemyfc>().SetStart(gameObject, playerColor);
             }else{
               SimpleArrowEnemy = Instantiate(SimpleArrowEnemy, GM.Playerfc.GetComponent<Controll>().PlayerUI.transform);
               Color col = playerColor;
               col.a = 0.5f;
-              SimpleArrowEnemy.GetComponent<ArrowToEnemySimple>().SetStart(gameObject, col );
+              SimpleArrowEnemy.GetComponent<ArrowToEnemySimplefc>().SetStart(gameObject, col );
             }
           }
-          gameObject.AddComponent<CheckVisible>().SetStart(this);
+          gameObject.AddComponent<CheckVisiblefc>().SetStart(this);
           //smr.gameObject.AddComponent<CheckVisible>().SetStart(this);
           nickname = GM.GenerateNicknamefc();
-          FinderCollider.GetComponent<FinderCollider>().SetStart();
+          FinderCollider.GetComponent<FinderColliderfc>().SetStart();
           rotateSmooth = 17.5f;
           turnside = Random.Range (-1, 1);
           if (turnside == 0) turnside = 1;
@@ -116,7 +117,7 @@ public class Controll : MonoBehaviour
             var col = hit.collider;
 
             if (col.tag == "Hex"){
-              col.gameObject.AddComponent<OnHex>();
+              col.gameObject.AddComponent<OnHexfc>();
               col.gameObject.tag = "HexOn";
               timerFall = 0;
             }
