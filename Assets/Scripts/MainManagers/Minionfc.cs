@@ -30,7 +30,8 @@ namespace MainManagers
       speedfc = s;
       controllfc = ctrl;
       GetComponent<SphereCollider>().isTrigger = false;
-      if (doDelayLookAtfc){
+      if (doDelayLookAtfc)
+      {
         delayfc = Random.Range(0.15f, 0.4f);
       }
       //Destroy(GetComponent<FoodTriggerMinion>());
@@ -38,7 +39,7 @@ namespace MainManagers
       smrfc.material.color = c;
       GameMangerfc.curMinionCountfc -= 1;
       smrfc.gameObject.transform.parent.transform.GetComponent<Animator>().enabled = true;
-      timerDistfc = Random.Range(0.01f, 0.39f);
+      timerDistfc = 0.3f; //Random.Range(0.01f, 0.39f);
     }
 
     
@@ -47,65 +48,68 @@ namespace MainManagers
       timerDistfc += Time.deltaTime;
       timerFallfc += Time.deltaTime;
 
-      if (playerfc){
+      if (playerfc)
+      {
         /////// CHECK FALLING AND RAYCAST/////////////////////////////////
-
         RaycastHit hit;
         if (Physics.Raycast(transform.position-Vector3.up*3, Vector3.up, out hit, 5, (1 << 6))){
           var col = hit.collider;
 
-          if (col.tag == "Hex"){
+          if (col.CompareTag("Hex"))
+          {
             col.gameObject.AddComponent<OnHexfc>();
             col.gameObject.tag = "HexOn";
             timerFallfc = 0;
           }
-          if (col.tag == "HexOn"){
+          if (col.CompareTag("HexOn"))
+          {
             timerFallfc = 0;
           }
         }
-
         //////////////////////////////////////////////////////////////////
         timerfc -= Time.deltaTime;
-        if (doDelayLookAtfc){
-          if (timerfc < 0){
+        if (doDelayLookAtfc)
+        {
+          if (timerfc < 0)
+          {
             transform.LookAt(playerfc);
           }
-        }else{
+        }
+        else
+        {
           transform.LookAt(playerfc);
-          //transform.eulerAngles = player.eulerAngles;
+          //transform.eulerAngles = playerfc.eulerAngles;
         }
 
-        if (timerfc < 0){
+        if (timerfc < 0)
+        {
           timerfc = delayfc;
-          //  CheckWater();
         }
         if (timerDistfc > 0.4f) distfc = Vector3.Distance(transform.position,  playerfc.position);
         //if (!falling) transform.position = Vector3.MoveTowards(transform.position, player.position, Time.deltaTime*speed*dist*0.5f);
         if (!fallingfc) transform.Translate(Vector3.forward * Time.deltaTime * speedfc * distfc *0.3f);
-        //if (!falling) GetComponent<Rigidbody>().MovePosition(transform.forward * speed * Time.deltaTime);
-      }/*else{
-          if (timerDist > 3){
-            if (GM.Player){
-              if (Vector3.Distance(transform.position, GM.Player.transform.position) > 18) GM.CreateMinion(false, gameObject, 1);
-            }
-          }
-        }*/
+      }
 
 
       var posy = transform.position.y;
 
-      if (fallingfc){
-        if (posy > 0){
+      if (fallingfc)
+      {
+        if (posy > 0)
+        {
           transform.position = new Vector3(transform.position.x, 0, transform.position.z);
           fallingfc = false;
         }
       }
-      if (timerFallfc > 0.19f){
+      if (timerFallfc > 0.19f)
+      {
         fallingfc = true;
         transform.Translate(Vector3.forward * speedfc * 0.4f * Time.deltaTime);
         transform.position -= Vector3.up * 5 * Time.deltaTime;
         //transform.Translate(-Vector3.up * 5 * Time.deltaTime);
-      }else{
+      }
+      else
+      {
         if (posy < 0 && posy > -0.4f){
           //transform.Translate(Vector3.up * 1 * Time.deltaTime);
           transform.position += Vector3.up * 1 * Time.deltaTime;

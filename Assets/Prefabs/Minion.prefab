@@ -49,8 +49,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerfc: {fileID: 0}
-  doDelayLookAtfc: 0
-  speedfc: 0
+  doDelayLookAtfc: 1
+  speedfc: 5
   smrfc: {fileID: 5228829223260152025}
   GameMangerfc: {fileID: 0}
   controllfc: {fileID: 0}
@@ -255,7 +255,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4401986225561612318}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: d531ac5d71969b442aef34aa992b2a75, type: 2}
   m_CullingMode: 0
@@ -276,6 +276,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7084761450237255591}
     m_Modifications:
+    - target: {fileID: 4303861518610017317, guid: e8ba0a4662ec2774188330dd55b3a716,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4303861518610378757, guid: e8ba0a4662ec2774188330dd55b3a716,
         type: 3}
       propertyPath: m_RootOrder
@@ -325,6 +330,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303861518617304995, guid: e8ba0a4662ec2774188330dd55b3a716,
+        type: 3}
+      propertyPath: m_CullingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303861518617304995, guid: e8ba0a4662ec2774188330dd55b3a716,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4303861518621581667, guid: e8ba0a4662ec2774188330dd55b3a716,
         type: 3}

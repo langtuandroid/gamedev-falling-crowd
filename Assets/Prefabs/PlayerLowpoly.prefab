@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1123131493018980242
 Transform:
   m_ObjectHideFlags: 0
@@ -51,30 +51,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66a380fcf016b8740bddb0f52ead6e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bot: 0
-  controllerStopMove: 0
-  count: 1
-  nickname: 
-  speed: 4
-  visible: 0
-  notShowArrows: 0
-  playerColor: {r: 0.36862746, g: 0.65882355, b: 0.9137255, a: 1}
-  FinderCollider: {fileID: 5675452347053270458}
-  joy: {fileID: 8450417347362812243}
-  botJoy: {fileID: 3212866813566678179}
-  smr: {fileID: 370881957607064412}
-  PlayerUI: {fileID: 8747045485377416029}
-  t_count: {fileID: 8747045483859400566}
-  t_nickname: {fileID: 8747045484837250678}
-  t_nicknamesdw: {fileID: 8747045485512584838}
-  target: {fileID: 0}
-  score_box: {fileID: 8747045484638682244}
-  DoUiArrow: 0
-  UIarrowEnemy: {fileID: 7021529097553368725, guid: 5295172fe5f6b9241a481a7d85dd76b6,
-    type: 3}
-  SimpleArrowEnemy: {fileID: 563882681236075398, guid: 681daad68c1838d4aa5e6b0ff6255b50,
-    type: 3}
-  gamestarted: 0
+  Botfc: 0
+  controllerStopMovefc: 0
+  countfc: 0
+  nicknamefc: 
+  speedfc: 0
+  visiblefc: 0
+  notShowArrowsfc: 0
+  playerColorfc: {r: 0, g: 0, b: 0, a: 0}
+  FinderColliderfc: {fileID: 0}
+  joyfc: {fileID: 0}
+  botJoyfc: {fileID: 0}
+  skinmeshfc: {fileID: 0}
+  PlayerUIfc: {fileID: 0}
+  t_countfc: {fileID: 0}
+  t_nicknamefc: {fileID: 0}
+  targetfc: {fileID: 0}
+  score_boxfc: {fileID: 0}
+  DoUiArrowfc: 0
+  UIarrowEnemyfc: {fileID: 0}
+  SimpleArrowEnemyfc: {fileID: 0}
+  gamestartedfc: 0
 --- !u!135 &1123131493018980246
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -359,7 +356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 973bfd358c01ba64083dfbc0d47ab96c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectFind: {fileID: 0}
+  objectFindfc: {fileID: 0}
 --- !u!1 &7069078763408702063
 GameObject:
   m_ObjectHideFlags: 0
@@ -759,7 +756,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8747045485512584839
 Transform:
   m_ObjectHideFlags: 0
@@ -998,12 +995,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 520649010520810911}
   m_SourcePrefab: {fileID: 100100000, guid: a11e2a1c320880b498f7f64bfb64a36f, type: 3}
---- !u!137 &370881957607064412 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 3727956284482021115, guid: a11e2a1c320880b498f7f64bfb64a36f,
-    type: 3}
-  m_PrefabInstance: {fileID: 3934456476373427623}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3536247290107019852 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a11e2a1c320880b498f7f64bfb64a36f,
