@@ -98,7 +98,7 @@ namespace MainManagers
 
       t_nicknamefc.text = nicknamefc;
       //t_nicknamesdw.text = nickname;
-      skinmeshfc.material.color = playerColorfc;
+      //skinmeshfc.material.color = playerColorfc;
       score_boxfc.color = playerColorfc;
 
     }

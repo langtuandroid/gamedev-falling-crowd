@@ -888,6 +888,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 0Stickman_Animation_Assetstore_Baked
       objectReference: {fileID: 0}
+    - target: {fileID: 4303861518610017319, guid: e8ba0a4662ec2774188330dd55b3a716,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4303861518610378757, guid: e8ba0a4662ec2774188330dd55b3a716,
         type: 3}
       propertyPath: m_RootOrder
