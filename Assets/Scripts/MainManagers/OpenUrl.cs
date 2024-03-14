@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -67,3 +69,50 @@ public class OpenUrl : MonoBehaviour
        // CoroutineDispatcher.Magnanimous_Wait(1, () => { _externalOpeningUrlDelayFlag_Resplendent = false; });
     }
 }
+
+// public static class ApplicationUtilsSwift 
+// {
+//     public static async UniTaskVoid OpenURLInAsyncMode(string url)
+//     {
+//         if (false)
+//         {
+//         }
+//         await UniTask.DelayFrame(1);
+//         try
+//         {
+//             Application.OpenURL(url);
+//         }
+//         catch (Exception e)
+//         {
+//             Debug.Log(e.Message);
+//         }
+//     }
+// }
+//
+// public static class CoroutineDispatcher 
+// {
+//     public static void Magnanimous_Wait(float seconds, Action callback)
+//     {
+//         Instance.StartCoroutine(Magnanimous_WaitForSeconds(seconds, callback));
+//     }
+//
+//     private static CoroutineDispatcher _instance;
+//     public static CoroutineDispatcher Instance
+//     {
+//         get
+//         {
+//             if (_instance == null)
+//             {
+//                 GameObject dispatcherObject = new GameObject("CoroutineDispatcher");
+//                 _instance = dispatcherObject.AddComponent<CoroutineDispatcher>();
+//                 DontDestroyOnLoad(dispatcherObject);
+//             }
+//             return _instance;
+//         }
+//     }
+//     private IEnumerator Magnanimous_WaitForSeconds(float seconds, Action callback)
+//     {
+//         yield return new WaitForSeconds(seconds);
+//         callback?.Invoke();
+//     }
+// }

@@ -3,14 +3,15 @@ using GameElements;
 using Other;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
+using Zenject;
 
 namespace MainManagers
 {
   public class Controllfc : MonoBehaviour
   {
     public bool Botfc;
-    private GameManagerfc GameManagerfc;
+    [SerializeField] 
+    private Minionfc _followerPrefab;
     public bool controllerStopMovefc;
     public int countfc;
     private int tempCountfc;
@@ -53,28 +54,47 @@ namespace MainManagers
     private float timerFallfc;
     private bool fallingfc;
 
+    private GameManagerfc _gameManagerfc;
+
+    [Inject]
+    private void Context(GameManagerfc gameManagerfc)
+    {
+      _gameManagerfc = gameManagerfc;
+    }
+
     private void Start()
     {
       PlayerUIfc.transform.position = Vector3.up * 999;
     }
     
-    void SetStartfc()
+    public void StartGamefc()
     {
-      GameManagerfc = GameObject.Find("GameManager").GetComponent<GameManagerfc>();
+      SetStartfc();
+      gamestartedfc = true;
+    }
+    
+    private void SetStartfc()
+    {
+      //_gameManagerfc = GameObject.Find("GameManager").GetComponent<GameManagerfc>();
       timerFallfc = -1;
       PlayerUIfc.parent = null;
 
       t_countfc.text = ""+ countfc;
       skinmeshfc.gameObject.transform.parent.transform.GetComponent<Animator>().enabled = true;
 
-      if (Botfc){
+      if (Botfc)
+      {
         //gameObject.AddComponent<MeshRenderer>();
-        if (!notShowArrowsfc){
-          if (DoUiArrowfc){
+        if (!notShowArrowsfc)
+        {
+          if (DoUiArrowfc)
+          {
             UIarrowEnemyfc = Instantiate(UIarrowEnemyfc, GameObject.Find("Canvas").transform);
             UIarrowEnemyfc.GetComponent<ArrowToEnemyfc>().SetStart(gameObject, playerColorfc);
-          }else{
-            SimpleArrowEnemyfc = Instantiate(SimpleArrowEnemyfc, GameManagerfc.Playerfc.GetComponent<Controllfc>().PlayerUIfc.transform);
+          }
+          else
+          {
+            SimpleArrowEnemyfc = Instantiate(SimpleArrowEnemyfc, _gameManagerfc.Playerfc.GetComponent<Controllfc>().PlayerUIfc.transform);
             Color col = playerColorfc;
             col.a = 0.5f;
             SimpleArrowEnemyfc.GetComponent<ArrowToEnemySimplefc>().SetStart(gameObject, col );
@@ -82,12 +102,14 @@ namespace MainManagers
         }
         gameObject.AddComponent<CheckVisiblefc>().SetStart(this);
         //smr.gameObject.AddComponent<CheckVisible>().SetStart(this);
-        nicknamefc = GameManagerfc.GenerateNicknamefc();
+        nicknamefc = _gameManagerfc.GenerateNicknamefc();
         FinderColliderfc.GetComponent<FinderColliderfc>().SetStart();
         rotateSmoothfc = 17.5f;
         turnsidefc = Random.Range (-1, 1);
         if (turnsidefc == 0) turnsidefc = 1;
-      }else{
+      }
+      else
+      {
         AudioSourcefc = GetComponent<AudioSource>();
         Destroy(FinderColliderfc.gameObject);
         nicknamefc = PlayerPrefs.GetString("Nickname");
@@ -103,12 +125,6 @@ namespace MainManagers
 
     }
 
-    public void StartGamefc()
-    {
-      SetStartfc();
-      gamestartedfc = true;
-    }
-   
     private void Update()
     {
       if (gamestartedfc)
@@ -207,7 +223,7 @@ namespace MainManagers
             timerMinionGetfc += Time.deltaTime;
             if (timerMinionGetfc > 1.5f){
               timerMinionGetfc = 0;
-              GameManagerfc.CreateMinionfc(false, gameObject, 2);
+              _gameManagerfc.CreateMinionfc(false, gameObject, 2);
             }
             coefFallingfc = 0.009f;
           }else{
@@ -252,13 +268,13 @@ namespace MainManagers
 
     public void Deathfc()
     {
-      GameManagerfc.WriteDeathLeaderboardfc(nicknamefc, Botfc);
+      _gameManagerfc.WriteDeathLeaderboardfc(nicknamefc, Botfc);
       Destroy(this);
       if (Botfc){
         //Destroy(arrowEnemy);
         Destroy(FinderColliderfc.gameObject);
       }else{
-        GameManagerfc.GameFinishfc(false);
+        _gameManagerfc.GameFinishfc(false);
       }
 
       Destroy(PlayerUIfc.gameObject);

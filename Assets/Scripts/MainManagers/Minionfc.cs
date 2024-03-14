@@ -6,6 +6,8 @@ namespace MainManagers
 {
   public class Minionfc : MonoBehaviour
   {
+    public GameManagerfc GameMangerfc;
+    
     public Transform playerfc;
     public bool doDelayLookAtfc;
     public float speedfc;
@@ -13,7 +15,7 @@ namespace MainManagers
     private float timerfc;
     private float timerRunfc;
     public SkinnedMeshRenderer smrfc;
-    public GameManagerfc GameMangerfc;
+   
     private float timerDistfc;
 
     public Controllfc controllfc;
@@ -23,12 +25,12 @@ namespace MainManagers
     private bool fallingfc;
 
     
-    public void SetMinionfc(Transform p, float s, Color c, Controllfc ctrl)
+    public void SetMinionfc(Transform position, float speed, Color color, Controllfc controller)
     {
       tag = "Minion";
-      playerfc = p;
-      speedfc = s;
-      controllfc = ctrl;
+      playerfc = position;
+      speedfc = speed;
+      controllfc = controller;
       GetComponent<SphereCollider>().isTrigger = false;
       if (doDelayLookAtfc)
       {
@@ -36,7 +38,7 @@ namespace MainManagers
       }
       //Destroy(GetComponent<FoodTriggerMinion>());
       timerRunfc = 2;
-      smrfc.material.color = c;
+      //smrfc.material.color = color;
       GameMangerfc.curMinionCountfc -= 1;
       smrfc.gameObject.transform.parent.transform.GetComponent<Animator>().enabled = true;
       timerDistfc = 0.3f; //Random.Range(0.01f, 0.39f);
@@ -169,8 +171,10 @@ namespace MainManagers
       if (col.collider.CompareTag("Minion"))
       {
         Minionfc minionfc = col.collider.gameObject.GetComponent<Minionfc>();
-        if (minionfc.playerfc != playerfc){
-          if (minionfc.controllfc.countfc > controllfc.countfc){
+        if (minionfc.playerfc != playerfc)
+        {
+          if (minionfc.controllfc.countfc > controllfc.countfc)
+          {
             controllfc.countfc -= 1;
             SetMinionfc(minionfc.playerfc, minionfc.controllfc.speedfc, minionfc.controllfc.playerColorfc, minionfc.controllfc);
             gameObject.AddComponent<ScaleZeroPosfc>();
@@ -182,8 +186,10 @@ namespace MainManagers
       else if (col.collider.CompareTag("Player"))
       {
         Controllfc controllpl = col.collider.gameObject.GetComponent<Controllfc>();
-        if (controllpl.countfc < controllfc.countfc){
-          if (controllpl.countfc < 2){
+        if (controllpl.countfc < controllfc.countfc)
+        {
+          if (controllpl.countfc < 2)
+          {
             col.collider.gameObject.GetComponent<Controllfc>().Deathfc();
             controllfc.SoundMinionfc();
           }
