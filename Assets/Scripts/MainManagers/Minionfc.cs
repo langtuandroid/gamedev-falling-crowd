@@ -38,7 +38,7 @@ namespace MainManagers
       }
       //Destroy(GetComponent<FoodTriggerMinion>());
       timerRunfc = 2;
-      //smrfc.material.color = color;
+      smrfc.material.color = color;
       GameMangerfc.curMinionCountfc -= 1;
       smrfc.gameObject.transform.parent.transform.GetComponent<Animator>().enabled = true;
       timerDistfc = 0.3f; //Random.Range(0.01f, 0.39f);

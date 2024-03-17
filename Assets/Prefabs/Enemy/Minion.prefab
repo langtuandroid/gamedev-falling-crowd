@@ -401,6 +401,7 @@ GameObject:
   - component: {fileID: 3571494262652774933}
   - component: {fileID: 970030693409779249}
   - component: {fileID: 554144172576356049}
+  - component: {fileID: -7135463097655820815}
   m_Layer: 0
   m_Name: Minion
   m_TagString: Player
@@ -416,7 +417,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5471372129484451252}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -21.8, y: 0, z: -58.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -438,6 +439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66a380fcf016b8740bddb0f52ead6e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _characterData: {fileID: 11400000, guid: 510b7410af17f453f8b1f72c2769cad4, type: 2}
   Botfc: 1
   controllerStopMovefc: 0
   countfc: 1
@@ -647,6 +649,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-7135463097655820815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5471372129484451252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717a02054ef2699498e6bd4234fd7995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _containerSource: 2
 --- !u!1 &6656512675500906841
 GameObject:
   m_ObjectHideFlags: 0
@@ -970,17 +985,18 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 4091f66f49619bf43be58fd27c7ec883, type: 2}
     - target: {fileID: 5866666021909216657, guid: 2f424391baa1744edace9eceaea0ffbd,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 2f424391baa1744edace9eceaea0ffbd,
+        type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 693c7d519f329b14692f9c3a8f7fa20b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: -5568371526223589888, guid: 2f424391baa1744edace9eceaea0ffbd,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7108872719964131060}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f424391baa1744edace9eceaea0ffbd, type: 3}
 --- !u!137 &3041207636977514472 stripped
 SkinnedMeshRenderer:
@@ -988,30 +1004,6 @@ SkinnedMeshRenderer:
     type: 3}
   m_PrefabInstance: {fileID: 7807201206614506062}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &6837004899331945550 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -5568371526223589888, guid: 2f424391baa1744edace9eceaea0ffbd,
-    type: 3}
-  m_PrefabInstance: {fileID: 7807201206614506062}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7108872719964131060
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6837004899331945550}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 6
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!4 &7769405757925055909 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2f424391baa1744edace9eceaea0ffbd,

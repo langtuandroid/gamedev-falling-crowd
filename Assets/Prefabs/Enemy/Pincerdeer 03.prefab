@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 5247454431717631156}
   - component: {fileID: 8602829568453924437}
   - component: {fileID: 8629888356545900148}
+  - component: {fileID: 632296142504432737}
   m_Layer: 0
   m_Name: Pincerdeer 03
   m_TagString: Player
@@ -113,7 +114,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2161194396772278715}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -32.300003, y: 0, z: -33.100002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -135,6 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66a380fcf016b8740bddb0f52ead6e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _characterData: {fileID: 11400000, guid: 04d48460154f642e5a4131b81a165caf, type: 2}
   Botfc: 1
   controllerStopMovefc: 0
   countfc: 1
@@ -142,7 +144,7 @@ MonoBehaviour:
   speedfc: 3
   visiblefc: 0
   notShowArrowsfc: 0
-  playerColorfc: {r: 0.0046279924, g: 0.14482813, b: 0.9811321, a: 1}
+  playerColorfc: {r: 0.003921577, g: 0.37754467, b: 0.98039216, a: 1}
   FinderColliderfc: {fileID: 1314004667740651058}
   joyfc: {fileID: 2255333216496227597}
   botJoyfc: {fileID: 6829046004670819878}
@@ -344,6 +346,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &632296142504432737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2161194396772278715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717a02054ef2699498e6bd4234fd7995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _containerSource: 2
 --- !u!1 &4249106755589760776
 GameObject:
   m_ObjectHideFlags: 0
@@ -885,9 +900,14 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3399603632837355321, guid: 20300d27a54ef3940b305adc4be177f4,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3399603632837355321, guid: 20300d27a54ef3940b305adc4be177f4,
+        type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 693c7d519f329b14692f9c3a8f7fa20b, type: 2}
+      objectReference: {fileID: 9100000, guid: bec77e051e4bd4ffbb175eacd1c32645, type: 2}
     - target: {fileID: 8252332871527196665, guid: 20300d27a54ef3940b305adc4be177f4,
         type: 3}
       propertyPath: m_Name

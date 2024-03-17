@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d544c23eb19b44dc1a1f015924b84932, type: 3}
+  m_Name: MinionData
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 5471372129484451252, guid: 1053e0effdb134b728401ad4be71983f, type: 3}
+  _color: {r: 0.94509804, g: 0.8392157, b: 0.09411765, a: 1}
+  _speed: 3
+  _price: 0
+  _isUnlockStatus: 1

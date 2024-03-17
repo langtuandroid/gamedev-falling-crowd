@@ -1,15 +1,31 @@
-﻿using UIElements;
+﻿using System.Collections.Generic;
+using GameElements;
+using UIElements;
 using UnityEngine;
 
 namespace MainManagers
 {
   public class GameManagerfc : MonoBehaviour
   {
+    [SerializeField] 
+    private List<Transform> _spawnPointEnemy;
+    [SerializeField] 
+    private Transform _spawnPointPlayer;
+    [SerializeField] 
+    private Transform _spawnHolderEnemy;
+    [SerializeField] 
+    private List<GameObject> _prefabsEnemy;
+    [SerializeField] 
+    private GameObject _prefabsPlayer;
+    [SerializeField] 
+    private List<OnLayerfc> _layerfc;
+    
     public bool Menufc;
     public GameObject minionPrefabfc;
-    public GameObject Playerfc;
+   // public GameObject Playerfc;
     public GameObject PlayersInformerfc;
     public GameObject MenuUIfc;
+    public GameObject GameMenuUIfc;
     public GameObject FinishUIfc;
     public int curMinionCountfc;
     public int minionCountfc;
@@ -20,6 +36,9 @@ namespace MainManagers
     private bool gamestartedfc;
     private bool gamefinishedfc;
     private bool victoryfc;
+
+    public GameObject _prefabsPlayerNew;
+    public GameObject PrefabsPlayer => _prefabsPlayerNew;
 
     private void Awake()
     {
@@ -36,11 +55,27 @@ namespace MainManagers
     {
       QualitySettings.vSyncCount = 0;
       Application.targetFrameRate = 60;
-      
+      CreateCharacters();
       if (!Menufc)
       {
         leadernumfc = leaderboardfc.Length;
         PlayersInformerfc.SetActive(false);
+      }
+    }
+
+    private void CreateCharacters()
+    {
+      _prefabsPlayerNew = Instantiate(_prefabsPlayer, _spawnPointPlayer.position, Quaternion.identity, _spawnPointPlayer.transform);
+      var characterController = _prefabsPlayerNew.GetComponent<Controllfc>();
+      characterController.Botfc = false;
+      //_layerfc[0].SetPlayercOntroller(characterController);
+      
+      for (int i = 0; i < _prefabsEnemy.Count; i++)
+      {
+        var newEnemy = Instantiate(_prefabsEnemy[i], _spawnPointEnemy[i].position, Quaternion.identity, _spawnHolderEnemy.transform);
+       var newEnemyControlle = newEnemy.GetComponent<Controllfc>();
+       newEnemyControlle.Botfc = true;
+       // _layerfc[i+1].SetPlayercOntroller(characterController);
       }
     }
    
@@ -69,9 +104,13 @@ namespace MainManagers
 
     public void StartGamefc()
     {
-      foreach(GameObject g in GameObject.FindGameObjectsWithTag("Player"))
+      int index = 0;
+      foreach(GameObject character in GameObject.FindGameObjectsWithTag("Player"))
       {
-        g.GetComponent<Controllfc>().StartGamefc();
+        var controller = character.GetComponent<Controllfc>();
+        controller.InitCharacterfc();
+        _layerfc[index].SetPlayercOntroller(controller);
+        index++;
       }
       
       while ( curMinionCountfc < minionCountfc)
@@ -81,7 +120,7 @@ namespace MainManagers
       minionCountfc += 5;
       PlayersInformerfc.SetActive(true);
       MenuUIfc.SetActive(false);
-
+      GameMenuUIfc.SetActive(true);
       gamestartedfc = true;
       GetComponent<AudioSource>().Play();
     }
@@ -121,8 +160,8 @@ namespace MainManagers
           x = Random.Range(-x, -x-3.0f);
         }
 
-        if (Playerfc){
-          newPos = Playerfc.transform.position + new Vector3(x,0,y)*coef;
+        if (PrefabsPlayer){
+          newPos = PrefabsPlayer.transform.position + new Vector3(x,0,y)*coef;
         }else{
           newPos = new Vector3(0,999,0);
         }

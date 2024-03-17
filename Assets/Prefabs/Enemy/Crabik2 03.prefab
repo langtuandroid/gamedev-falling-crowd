@@ -464,6 +464,7 @@ GameObject:
   - component: {fileID: 7371276441460846931}
   - component: {fileID: 3146001508786200821}
   - component: {fileID: 4361619218492840824}
+  - component: {fileID: -291307032459754675}
   m_Layer: 0
   m_Name: Crabik2 03
   m_TagString: Player
@@ -479,7 +480,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4811505301519072951}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -33.300003, y: 0, z: -50}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -501,6 +502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66a380fcf016b8740bddb0f52ead6e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _characterData: {fileID: 11400000, guid: b55cbe7224310457499e093315570b5a, type: 2}
   Botfc: 1
   controllerStopMovefc: 0
   countfc: 1
@@ -508,7 +510,7 @@ MonoBehaviour:
   speedfc: 3
   visiblefc: 0
   notShowArrowsfc: 0
-  playerColorfc: {r: 0.90131104, g: 0.36862743, b: 0.9137255, a: 1}
+  playerColorfc: {r: 0.73333335, g: 0.58431375, b: 0.6156863, a: 1}
   FinderColliderfc: {fileID: 3382385976689716312}
   joyfc: {fileID: 3941194552838936991}
   botJoyfc: {fileID: 3774613427642315973}
@@ -710,6 +712,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-291307032459754675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4811505301519072951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717a02054ef2699498e6bd4234fd7995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _containerSource: 2
 --- !u!1 &5385147160133844869
 GameObject:
   m_ObjectHideFlags: 0
@@ -885,9 +900,14 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1841184773146760176, guid: e56067b1e786e9a4a82dcf7c16710f39,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1841184773146760176, guid: e56067b1e786e9a4a82dcf7c16710f39,
+        type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 693c7d519f329b14692f9c3a8f7fa20b, type: 2}
+      objectReference: {fileID: 9100000, guid: 0f863d2c7aa9546ffa0e114b1149836d, type: 2}
     - target: {fileID: 4910840814865273648, guid: e56067b1e786e9a4a82dcf7c16710f39,
         type: 3}
       propertyPath: m_Name

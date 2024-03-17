@@ -80,6 +80,7 @@ GameObject:
   - component: {fileID: 2989978084033993181}
   - component: {fileID: 525482680387453713}
   - component: {fileID: 7599582385683860840}
+  - component: {fileID: -2933519847139521043}
   m_Layer: 0
   m_Name: Cactus lvl3
   m_TagString: Player
@@ -95,7 +96,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2796484703796064638}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -67.8, y: 0, z: -48.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -117,6 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66a380fcf016b8740bddb0f52ead6e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _characterData: {fileID: 11400000, guid: 795cbdd44ce954581a6c19d130eb924e, type: 2}
   Botfc: 1
   controllerStopMovefc: 0
   countfc: 1
@@ -326,6 +328,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-2933519847139521043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2796484703796064638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717a02054ef2699498e6bd4234fd7995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _containerSource: 2
 --- !u!1 &5314440780092474540
 GameObject:
   m_ObjectHideFlags: 0
@@ -885,9 +900,14 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 410243734734180163, guid: 44d908c8dfd0b5a49a635d14b50cea71,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 410243734734180163, guid: 44d908c8dfd0b5a49a635d14b50cea71,
+        type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 693c7d519f329b14692f9c3a8f7fa20b, type: 2}
+      objectReference: {fileID: 9100000, guid: 818eab5e473cd4f38825e8d1f1369f27, type: 2}
     - target: {fileID: 6003674698470446393, guid: 44d908c8dfd0b5a49a635d14b50cea71,
         type: 3}
       propertyPath: m_LocalScale.x

@@ -20,8 +20,6 @@ namespace UIElements
     public void ChangeNicknamefc()
     {
       var str = _inputFieldNickNamefc.text;
-      if (str == "5705creo") Application.LoadLevel("Creo");
-
       if (str != "" && str != " " && str != "  " && str != "   " 
           && str != "     " && str != "      " && str != "       " 
           && str != "        " && str != "         " && str != "           " 

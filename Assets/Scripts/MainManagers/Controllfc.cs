@@ -9,16 +9,14 @@ namespace MainManagers
 {
   public class Controllfc : MonoBehaviour
   {
+    [SerializeField]
+    private CharacterData _characterData;
     public bool Botfc;
-    [SerializeField] 
-    private Minionfc _followerPrefab;
     public bool controllerStopMovefc;
     public int countfc;
     private int tempCountfc;
     public string nicknamefc;
-    [Space]
     public float speedfc;
-    [Space]
     public bool visiblefc;
     public bool notShowArrowsfc;
     [Space]
@@ -67,10 +65,20 @@ namespace MainManagers
       PlayerUIfc.transform.position = Vector3.up * 999;
     }
     
-    public void StartGamefc()
+    public void InitCharacterfc()
     {
+      if (Botfc)
+      {
+        LoadData();
+      }
       SetStartfc();
       gamestartedfc = true;
+    }
+
+    private void LoadData()
+    {
+      speedfc = _characterData.Speed;
+      playerColorfc = _characterData.Color;
     }
     
     private void SetStartfc()
@@ -94,7 +102,7 @@ namespace MainManagers
           }
           else
           {
-            SimpleArrowEnemyfc = Instantiate(SimpleArrowEnemyfc, _gameManagerfc.Playerfc.GetComponent<Controllfc>().PlayerUIfc.transform);
+            SimpleArrowEnemyfc = Instantiate(SimpleArrowEnemyfc, _gameManagerfc.PrefabsPlayer.GetComponent<Controllfc>().PlayerUIfc.transform);
             Color col = playerColorfc;
             col.a = 0.5f;
             SimpleArrowEnemyfc.GetComponent<ArrowToEnemySimplefc>().SetStart(gameObject, col );
@@ -270,10 +278,13 @@ namespace MainManagers
     {
       _gameManagerfc.WriteDeathLeaderboardfc(nicknamefc, Botfc);
       Destroy(this);
-      if (Botfc){
+      if (Botfc)
+      {
         //Destroy(arrowEnemy);
         Destroy(FinderColliderfc.gameObject);
-      }else{
+      }
+      else
+      {
         _gameManagerfc.GameFinishfc(false);
       }
 
