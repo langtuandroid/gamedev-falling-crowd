@@ -16,8 +16,6 @@ namespace MainManagers
     [SerializeField] 
     private List<GameObject> _prefabsEnemy;
     [SerializeField] 
-    private GameObject _prefabsPlayer;
-    [SerializeField] 
     private List<OnLayerfc> _layerfc;
     
     public bool Menufc;
@@ -54,7 +52,7 @@ namespace MainManagers
     private void Start()
     {
       QualitySettings.vSyncCount = 0;
-      Application.targetFrameRate = 60;
+      //Application.targetFrameRate = 60;
       CreateCharacters();
       if (!Menufc)
       {
@@ -65,9 +63,12 @@ namespace MainManagers
 
     private void CreateCharacters()
     {
-      _prefabsPlayerNew = Instantiate(_prefabsPlayer, _spawnPointPlayer.position, Quaternion.identity, _spawnPointPlayer.transform);
+      int index = SaveLoadManager.LoadChoseCharacter();
+      Debug.Log(" Index= " + index);
+      _prefabsPlayerNew = Instantiate(_prefabsEnemy[index], _spawnPointPlayer.position, Quaternion.identity, _spawnPointPlayer.transform);
       var characterController = _prefabsPlayerNew.GetComponent<Controllfc>();
       characterController.Botfc = false;
+      characterController.speedfc = 5f;
       //_layerfc[0].SetPlayercOntroller(characterController);
       
       for (int i = 0; i < _prefabsEnemy.Count; i++)
@@ -75,6 +76,7 @@ namespace MainManagers
         var newEnemy = Instantiate(_prefabsEnemy[i], _spawnPointEnemy[i].position, Quaternion.identity, _spawnHolderEnemy.transform);
        var newEnemyControlle = newEnemy.GetComponent<Controllfc>();
        newEnemyControlle.Botfc = true;
+       newEnemyControlle.OffOutline();
        // _layerfc[i+1].SetPlayercOntroller(characterController);
       }
     }
@@ -122,7 +124,7 @@ namespace MainManagers
       MenuUIfc.SetActive(false);
       GameMenuUIfc.SetActive(true);
       gamestartedfc = true;
-      GetComponent<AudioSource>().Play();
+      //GetComponent<AudioSource>().Play();
     }
     
     public void WriteDeathLeaderboardfc(string nick, bool bot)

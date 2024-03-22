@@ -57,7 +57,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 9115228638669970365, guid: 8016d7e5db44a4ec08bd12d2aea20ad5, type: 2}
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -101,9 +101,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: NickName
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8016d7e5db44a4ec08bd12d2aea20ad5, type: 2}
-  m_sharedMaterial: {fileID: 9115228638669970365, guid: 8016d7e5db44a4ec08bd12d2aea20ad5,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -251,7 +250,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 3858323469342008898, guid: 24144d8e5305f411796e30534d687e52, type: 2}
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -295,9 +294,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 15
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 24144d8e5305f411796e30534d687e52, type: 2}
-  m_sharedMaterial: {fileID: 3858323469342008898, guid: 24144d8e5305f411796e30534d687e52,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -503,6 +501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _characterData: {fileID: 11400000, guid: b55cbe7224310457499e093315570b5a, type: 2}
+  _characterOutline: {fileID: 5344020862731050077}
   Botfc: 1
   controllerStopMovefc: 0
   countfc: 1
@@ -966,7 +965,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2728022033537581075, guid: e56067b1e786e9a4a82dcf7c16710f39,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5344020862731050077}
   m_SourcePrefab: {fileID: 100100000, guid: e56067b1e786e9a4a82dcf7c16710f39, type: 3}
 --- !u!137 &701634319341940723 stripped
 SkinnedMeshRenderer:
@@ -980,3 +983,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4776547288908197982}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7463121979915645005 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2728022033537581075, guid: e56067b1e786e9a4a82dcf7c16710f39,
+    type: 3}
+  m_PrefabInstance: {fileID: 4776547288908197982}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5344020862731050077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7463121979915645005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 6
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []

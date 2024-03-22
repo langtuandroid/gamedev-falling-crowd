@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _characterData: {fileID: 11400000, guid: 04d48460154f642e5a4131b81a165caf, type: 2}
+  _characterOutline: {fileID: 5954918673916230638}
   Botfc: 1
   controllerStopMovefc: 0
   countfc: 1
@@ -438,7 +439,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 3858323469342008898, guid: 24144d8e5305f411796e30534d687e52, type: 2}
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -482,9 +483,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 15
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 24144d8e5305f411796e30534d687e52, type: 2}
-  m_sharedMaterial: {fileID: 3858323469342008898, guid: 24144d8e5305f411796e30534d687e52,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -775,7 +775,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 9115228638669970365, guid: 8016d7e5db44a4ec08bd12d2aea20ad5, type: 2}
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -819,9 +819,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: NickName
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8016d7e5db44a4ec08bd12d2aea20ad5, type: 2}
-  m_sharedMaterial: {fileID: 9115228638669970365, guid: 8016d7e5db44a4ec08bd12d2aea20ad5,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -966,8 +965,36 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6785431276711851870, guid: 20300d27a54ef3940b305adc4be177f4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5954918673916230638}
   m_SourcePrefab: {fileID: 100100000, guid: 20300d27a54ef3940b305adc4be177f4, type: 3}
+--- !u!1 &845814177906817098 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6785431276711851870, guid: 20300d27a54ef3940b305adc4be177f4,
+    type: 3}
+  m_PrefabInstance: {fileID: 6167220406620245780}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5954918673916230638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845814177906817098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 6
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!4 &3196328552970318423 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8776950157634190659, guid: 20300d27a54ef3940b305adc4be177f4,

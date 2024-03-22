@@ -11,6 +11,8 @@ namespace MainManagers
   {
     [SerializeField]
     private CharacterData _characterData;
+    [SerializeField]
+    private Outline _characterOutline;
     public bool Botfc;
     public bool controllerStopMovefc;
     public int countfc;
@@ -79,6 +81,16 @@ namespace MainManagers
     {
       speedfc = _characterData.Speed;
       playerColorfc = _characterData.Color;
+    }
+
+    public void Onutline()
+    {
+      _characterOutline.enabled = true;
+    }
+    
+    public void OffOutline()
+    {
+      _characterOutline.enabled = false;
     }
     
     private void SetStartfc()

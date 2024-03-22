@@ -33,7 +33,10 @@ namespace UIElements
           if (GameManagerfc.leaderboardfc[i] != "")
           {
             textLeaderfc[i].text = GameManagerfc.leaderboardfc[i];
-            if (GameManagerfc.playernumfc == i) textLeaderfc[i].color = new Color(1,1,0);
+            if (GameManagerfc.playernumfc == i)
+            {
+              textLeaderfc[i].color = new Color(0,0,1);
+            }
           }
           i++;
         }

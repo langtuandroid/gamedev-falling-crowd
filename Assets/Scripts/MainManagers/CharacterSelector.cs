@@ -17,6 +17,8 @@ namespace MainManagers
         [SerializeField] 
         private Button _select;
         [SerializeField] 
+        private TextMeshProUGUI _selectText;
+        [SerializeField] 
         private Button _next;
         [SerializeField] 
         private Button _preview;
@@ -28,12 +30,13 @@ namespace MainManagers
         private int _coins;
         private int _price;
         private int _presentCharacterIndex;
-
+        private int _selectedCharacterIndex;
         private void Awake()
         {
             _next.onClick.AddListener(NextCharacter);
             _preview.onClick.AddListener(PreviewCharacter);
             _unlock.onClick.AddListener(UnlockCharacter);
+            _select.onClick.AddListener(SelectCharacter);
         }
 
         private void OnDestroy()
@@ -41,6 +44,7 @@ namespace MainManagers
             _next.onClick.RemoveListener(NextCharacter);
             _preview.onClick.RemoveListener(PreviewCharacter);
             _unlock.onClick.RemoveListener(UnlockCharacter);
+            _select.onClick.RemoveListener(SelectCharacter);
         }
 
         private void Start()
@@ -69,12 +73,21 @@ namespace MainManagers
             _coins = SaveLoadManager.LoadCoins();
             _coinsText.text = $"{_coins}";
             _presentCharacterIndex = SaveLoadManager.LoadCharacter();
+            _selectedCharacterIndex = SaveLoadManager.LoadChoseCharacter();
             _isOpen = _characterHolder.CharacterDatas[_presentCharacterIndex].IsUnlockStatus;
             if (_isOpen)
             {
                 _pricePanel.SetActive(false);
                 _select.gameObject.SetActive(true);
                 _unlock.gameObject.SetActive(false);
+                if (_presentCharacterIndex == _selectedCharacterIndex)
+                {
+                    _selectText.text = "SELECTED";
+                }
+                else
+                {
+                    _selectText.text = "SELECT";
+                }
             }
             else
             {
@@ -132,7 +145,9 @@ namespace MainManagers
                 model.SetActive(false);
             }
             LoadCharacterData(index);
+            
             SaveLoadManager.SaveCharacter(index);
+            
             UpdatePanelView();
         }
 
@@ -146,5 +161,14 @@ namespace MainManagers
             }
             UpdatePanelView();
         }
+
+        private void SelectCharacter()
+        {
+            _presentCharacterIndex = SaveLoadManager.LoadCharacter();
+            SaveLoadManager.SaveChoseCharacter(_presentCharacterIndex);
+            UpdatePanelView();
+            _selectText.text = "SELECTED";
+        }
+        
     }
 }

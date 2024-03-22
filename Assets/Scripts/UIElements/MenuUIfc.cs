@@ -12,8 +12,16 @@ namespace UIElements
   
     private void Start()
     {
-      _coinsfc.text = PlayerPrefs.GetInt("Gold") + "";
-      _inputFieldNickNamefc.text = PlayerPrefs.GetString("Nickname");
+      if (_coinsfc != null)
+      {
+        _coinsfc.text = PlayerPrefs.GetInt("Gold") + "";
+      }
+
+      if (_inputFieldNickNamefc != null)
+      {
+        _inputFieldNickNamefc.text = PlayerPrefs.GetString("Nickname");
+      }
+     
     }
   
 

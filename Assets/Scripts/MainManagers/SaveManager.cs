@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public static class SaveLoadManager 
 {
         static string COINSKEY = "Gold";
         static string HEROMODELKEY = "HEROMODEL";
-        static string ITEMUNLOCKEDKEY = "ITEMUNLOCKED";
+        static string CHOSECHARACTER = "CHOSECHARACTER";
         static string CHARACTERSELECT = "CHARACTERSELECT";
 
         public static void SaveSettings(string key, bool state)
@@ -49,12 +47,21 @@ public static class SaveLoadManager
         public static void SaveSelectHeroModel(int indexCharacter)
         { PlayerPrefs.SetInt(HEROMODELKEY, indexCharacter); }
 
-        
-        public static int GetItemUnlockedState(int itemIndex)
-        { return PlayerPrefs.GetInt(ITEMUNLOCKEDKEY + itemIndex); }
 
-        public static void SetItemUnlockedState(int itemIndex, int state)
-        { PlayerPrefs.SetInt(ITEMUNLOCKEDKEY + itemIndex, state); }
+        public static int LoadChoseCharacter()
+        {
+            if (!PlayerPrefs.HasKey(CHOSECHARACTER))
+            {
+                SaveChoseCharacter(0);
+            }
+          
+            return PlayerPrefs.GetInt(CHOSECHARACTER);
+        }
+
+        public static void SaveChoseCharacter(int itemIndex)
+        {
+            PlayerPrefs.SetInt(CHOSECHARACTER,itemIndex);
+        }
         
 
         public static int LoadCharacter()
