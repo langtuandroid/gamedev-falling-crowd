@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using GameElements;
+using Integration;
 using UIElements;
 using UnityEngine;
+using Zenject;
 
 namespace MainManagers
 {
@@ -34,10 +36,23 @@ namespace MainManagers
     private bool gamestartedfc;
     private bool gamefinishedfc;
     private bool victoryfc;
+    
+    private const string IntegrationsCounter = "IntegrationsCounter";
+    private int loadLevelCount = 0; 
 
     public GameObject _prefabsPlayerNew;
     public GameObject PrefabsPlayer => _prefabsPlayerNew;
+    
+    private IAPService _iapService;
+    private AdMobController _adMobController;
 
+    [Inject]
+    private void Construct(IAPService iapService, AdMobController adMobController)
+    {
+      _iapService = iapService;
+      _adMobController = adMobController;
+    }
+    
     private void Awake()
     {
       if (PlayerPrefs.GetInt("firstStart") != 1)
@@ -59,6 +74,33 @@ namespace MainManagers
         leadernumfc = leaderboardfc.Length;
         PlayersInformerfc.SetActive(false);
       }
+      
+      ShowIntegration();
+    }
+    
+    private void ShowIntegration()
+    {
+      loadLevelCount = PlayerPrefs.GetInt(IntegrationsCounter, 0);
+      loadLevelCount++;
+      Debug.Log("loadLevelCount = " + loadLevelCount);
+      if (loadLevelCount % 2 == 0)
+      {
+        Debug.Log("% 2");
+        _adMobController.ShowInterstitialAd();
+        _adMobController.ShowBanner(true);
+      }
+      else if (loadLevelCount % 3 == 0)
+      {
+        Debug.Log("% 3");
+        _iapService.ShowSubscriptionPanel();
+      }
+
+      if (loadLevelCount >= 3)
+      {
+        loadLevelCount = 0;
+      }
+      PlayerPrefs.SetInt(IntegrationsCounter, loadLevelCount);
+      PlayerPrefs.Save(); 
     }
 
     private void CreateCharacters()
