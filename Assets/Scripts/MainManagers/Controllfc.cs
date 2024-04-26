@@ -388,9 +388,13 @@ namespace MainManagers
 
     public void SoundMinionfc()
     {
-      if (!Botfc){
-        AudioSourcefc.pitch = Random.Range(0.89f, 1.11f);
-        AudioSourcefc.Play();
+      if (!Botfc)
+      {
+        if (AudioSourcefc != null)
+        {
+          AudioSourcefc.Play();
+        }
+        
       }
     }
   }

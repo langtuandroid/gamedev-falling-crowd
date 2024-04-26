@@ -16,4 +16,6 @@ MonoBehaviour:
   _color: {r: 0.94509804, g: 0.8392157, b: 0.09411765, a: 1}
   _speed: 3
   _price: 0
+  _adsWatchCounter: 0
   _isUnlockStatus: 1
+  _typeUnlock: 0

@@ -15,5 +15,7 @@ MonoBehaviour:
   _prefab: {fileID: 2309089914687620352, guid: 5b34dbf5c09374a2fafe0ca2d834d83a, type: 3}
   _color: {r: 0.9137255, g: 0.6, b: 0.36862746, a: 1}
   _speed: 3
-  _price: 100
+  _price: 1500
+  _adsWatchCounter: 0
   _isUnlockStatus: 0
+  _typeUnlock: 0

@@ -15,7 +15,9 @@ namespace MainManagers
       [SerializeField] 
       private Button _settings;
       [SerializeField] 
-      private Button _shop;
+      private Button _skinshop;
+      [SerializeField] 
+      private List<Button> _shopDiamonds;
       
       [SerializeField] 
       private Button _startGame;
@@ -28,8 +30,12 @@ namespace MainManagers
             button.onClick.AddListener(BackToMainMenu);
          }
          _settings.onClick.AddListener(OpenSettingsMenu);
-         _shop.onClick.AddListener(OpenShopMenu);
+         _skinshop.onClick.AddListener(OpenSkinShopMenu);
          _startGame.onClick.AddListener(StartGame);
+         foreach (var buttonshop in _shopDiamonds)
+         {
+            buttonshop.onClick.AddListener(OpenShopMenu);
+         }
       }
 
       
@@ -40,8 +46,12 @@ namespace MainManagers
             button.onClick.RemoveListener(BackToMainMenu);
          }
          _settings.onClick.RemoveListener(OpenSettingsMenu);
-         _shop.onClick.AddListener(OpenShopMenu);
-         _startGame.onClick.AddListener(StartGame);
+         _skinshop.onClick.RemoveListener(OpenSkinShopMenu);
+         _startGame.onClick.RemoveListener(StartGame);
+         foreach (var buttonshop in _shopDiamonds)
+         {
+            buttonshop.onClick.RemoveListener(OpenShopMenu);
+         }
       }
       
       private void BackToMainMenu()
@@ -56,10 +66,15 @@ namespace MainManagers
          _allPanels[1].SetActive(true);
       }
       
-      private void OpenShopMenu()
+      private void OpenSkinShopMenu()
       {
          DeactiveAllPanels();
          _allPanels[2].SetActive(true);
+      }
+      private void OpenShopMenu()
+      {
+         DeactiveAllPanels();
+         _allPanels[3].SetActive(true);
       }
       
       private void StartGame()

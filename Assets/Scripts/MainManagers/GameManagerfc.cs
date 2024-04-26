@@ -82,16 +82,13 @@ namespace MainManagers
     {
       loadLevelCount = PlayerPrefs.GetInt(IntegrationsCounter, 0);
       loadLevelCount++;
-      Debug.Log("loadLevelCount = " + loadLevelCount);
+      _adMobController.ShowBanner(true);
       if (loadLevelCount % 2 == 0)
       {
-        Debug.Log("% 2");
         _adMobController.ShowInterstitialAd();
-        _adMobController.ShowBanner(true);
       }
       else if (loadLevelCount % 3 == 0)
       {
-        Debug.Log("% 3");
         _iapService.ShowSubscriptionPanel();
       }
 

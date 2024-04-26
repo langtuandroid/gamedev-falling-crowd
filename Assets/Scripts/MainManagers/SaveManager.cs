@@ -3,6 +3,7 @@ using UnityEngine;
 public static class SaveLoadManager 
 {
         static string COINSKEY = "Gold";
+        static string DIAMONDSKEY = "Diamond";
         static string HEROMODELKEY = "HEROMODEL";
         static string CHOSECHARACTER = "CHOSECHARACTER";
         static string CHARACTERSELECT = "CHARACTERSELECT";
@@ -26,12 +27,26 @@ public static class SaveLoadManager
 
         public static int LoadCoins()
         {
+            if (!PlayerPrefs.HasKey(COINSKEY))
+            {
+                SaveCoins(0);
+            }
             return PlayerPrefs.GetInt(COINSKEY);
         }
 
         public static void SaveCoins(int coinsAmount)
         {
             PlayerPrefs.SetInt(COINSKEY, coinsAmount);
+        }
+        
+        public static int LoadDiamonds()
+        {
+            return PlayerPrefs.GetInt(DIAMONDSKEY,0);
+        }
+
+        public static void SaveDiamonds(int diamondAmount)
+        {
+            PlayerPrefs.SetInt(DIAMONDSKEY, LoadDiamonds() + diamondAmount);
         }
 
         public static int GetSelectHeroModel()
