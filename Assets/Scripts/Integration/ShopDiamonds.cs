@@ -1,4 +1,3 @@
-using System;
 using MainManagers;
 using TMPro;
 using UnityEngine;
