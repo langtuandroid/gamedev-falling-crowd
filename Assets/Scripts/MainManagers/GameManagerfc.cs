@@ -75,29 +75,6 @@ namespace MainManagers
         PlayersInformerfc.SetActive(false);
       }
       
-      ShowIntegration();
-    }
-    
-    private void ShowIntegration()
-    {
-      loadLevelCount = PlayerPrefs.GetInt(IntegrationsCounter, 0);
-      loadLevelCount++;
-      _adMobController.ShowBanner(true);
-      if (loadLevelCount % 2 == 0)
-      {
-        _adMobController.ShowInterstitialAd();
-      }
-      else if (loadLevelCount % 3 == 0)
-      {
-        _iapService.ShowSubscriptionPanel();
-      }
-
-      if (loadLevelCount >= 3)
-      {
-        loadLevelCount = 0;
-      }
-      PlayerPrefs.SetInt(IntegrationsCounter, loadLevelCount);
-      PlayerPrefs.Save(); 
     }
 
     private void CreateCharacters()
