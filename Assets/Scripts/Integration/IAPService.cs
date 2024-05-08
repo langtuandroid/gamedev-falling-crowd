@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Purchasing;
@@ -12,7 +13,8 @@ namespace Integration
     {
         private static IStoreController _storeController;
         private static IExtensionProvider _extensionsProvider;
-        
+
+        public event Action OnBuyDiamonds;
         [SerializeField]
         private PurchaseIDHolder _purchaseIDHolder;
         [SerializeField]
@@ -263,21 +265,25 @@ namespace Integration
             if (product.definition.id == _buy100Id)
             {
                 SaveLoadManager.SaveDiamonds(100);
+                OnBuyDiamonds?.Invoke();
                 Debug.Log($"ProcessPurchase: PASS. Product: '{product.definition.id}'");
             }
             if (product.definition.id == _buy300Id)
             {
                 SaveLoadManager.SaveDiamonds(300);
+                OnBuyDiamonds?.Invoke();
                 Debug.Log($"ProcessPurchase: PASS. Product: '{product.definition.id}'");
             }
             if (product.definition.id == _buy1000Id)
             {
                 SaveLoadManager.SaveDiamonds(1000);
+                OnBuyDiamonds?.Invoke();
                 Debug.Log($"ProcessPurchase: PASS. Product: '{product.definition.id}'");
             }
             if (product.definition.id == _buy3000Id)
             {
                 SaveLoadManager.SaveDiamonds(3000);
+                OnBuyDiamonds?.Invoke();
                 Debug.Log($"ProcessPurchase: PASS. Product: '{product.definition.id}'");
             }
             

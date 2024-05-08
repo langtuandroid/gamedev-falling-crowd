@@ -36,6 +36,7 @@ public class ShopDiamonds : MonoBehaviour
         _buyPack2.onClick.AddListener(BuyPack2);
         _buyPack3.onClick.AddListener(BuyPack3);
         _buyPack4.onClick.AddListener(BuyPack4);
+        _iapService.OnBuyDiamonds += UpdateDiamondInfo;
     }
 
     private void OnEnable()
@@ -49,27 +50,24 @@ public class ShopDiamonds : MonoBehaviour
         _buyPack2.onClick.RemoveListener(BuyPack2);
         _buyPack3.onClick.RemoveListener(BuyPack3);
         _buyPack4.onClick.RemoveListener(BuyPack4);
+        _iapService.OnBuyDiamonds -= UpdateDiamondInfo;
     }
 
     private void BuyPack1()
     {
         _iapService.BuyPack1();
-        UpdateDiamondInfo();
     }
     private void BuyPack2()
     {
         _iapService.BuyPack2();
-        UpdateDiamondInfo();
     }
     private void BuyPack3()
     {
         _iapService.BuyPack3();
-        UpdateDiamondInfo();
     }
     private void BuyPack4()
     {
         _iapService.BuyPack4();
-        UpdateDiamondInfo();
     }
 
     private void UpdateDiamondInfo()
